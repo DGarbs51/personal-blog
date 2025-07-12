@@ -1,58 +1,56 @@
 ---
 interface Props {
-	size?: 'small' | 'medium' | 'large';
-	showText?: boolean;
+  size?: "small" | "medium" | "large";
+  showText?: boolean;
 }
 
-const { size = 'medium', showText = true } = Astro.props;
+const { size = "medium", showText = true } = Astro.props;
 
 const dimensions = {
-	small: '28',
-	medium: '36',
-	large: '48'
+  small: "28",
+  medium: "36",
+  large: "48",
 };
 ---
 
 <div class="logo-container">
-	<img
-		src="/logo.svg"
-		alt="Devon Garbalosa Logo"
-		width={dimensions[size]}
-		height={dimensions[size]}
-		class="logo-svg"
-	/>
+  <img
+    src="/logo.svg"
+    alt="Devon Garbalosa Logo"
+    width={dimensions[size]}
+    height={dimensions[size]}
+    class="logo-svg"
+  />
 
-	{showText && (
-		<span class="logo-text">Devon Garbalosa</span>
-	)}
+  {showText && <span class="logo-text">Devon Garbalosa</span>}
 </div>
 
 <style>
-	.logo-container {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
 
-	.logo-svg {
-		flex-shrink: 0;
-		transition: transform 0.2s ease;
-	}
+  .logo-svg {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
 
-	.logo-svg:hover {
-		transform: scale(1.05);
-	}
+  .logo-svg:hover {
+    transform: scale(1.05);
+  }
 
-	.logo-text {
-		font-weight: 700;
-		color: var(--accent);
-		font-size: 1.1em;
-		letter-spacing: -0.02em;
-	}
+  .logo-text {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.1em;
+    letter-spacing: -0.02em;
+  }
 
-	@media (prefers-color-scheme: dark) {
-		.logo-text {
-			color: var(--accent-light);
-		}
-	}
+  @media (prefers-color-scheme: dark) {
+    .logo-text {
+      color: var(--accent-light);
+    }
+  }
 </style>

@@ -1,41 +1,69 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>👋 Hello, I'm Devon!</h1>
-			<p>
-				Welcome to my personal blog! I'm a passionate developer who loves exploring new technologies,
-				sharing insights about software development, and documenting my journey in the tech world.
-			</p>
-			<p>
-				Here you'll find articles about web development, programming best practices, tech tutorials,
-				and thoughts on the latest trends in software engineering. I believe in learning by doing
-				and sharing knowledge with the community.
-			</p>
-			<h2>What you'll find here:</h2>
-			<ul>
-				<li>📚 Technical tutorials and guides</li>
-				<li>💭 Thoughts on software development</li>
-				<li>🔧 Tool reviews and recommendations</li>
-				<li>🚀 Project showcases and case studies</li>
-				<li>📈 Industry insights and trends</li>
-			</ul>
-			<p>
-				Feel free to explore my <a href="/blog">latest posts</a> or learn more
-				<a href="/about">about me</a>. Let's connect and share ideas!
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>👋 Hey, I'm Devon</h1>
+      <p>
+        Welcome to my blog — a space where I think out loud, reflect on the
+        messy parts of building, and try to make sense of the work, the
+        industry, and myself in the process.
+      </p>
+      <p>
+        I'm a technologist, architect, and team leader with a background in
+        cloud-native Laravel development and enterprise-scale infrastructure.
+        I've spent over a decade working in financial services, building
+        platforms, mentoring engineers, and trying to lead with empathy,
+        clarity, and purpose.
+      </p>
+      <p>
+        This blog is part engineering journal, part leadership log, and part
+        personal chronicle. I started it to step outside the echo chamber of my
+        own head — to make space for transparency, mental health, and sharing
+        the thinking *as it happens*, not just after it's polished.
+      </p>
+
+      <h2>What you'll find here:</h2>
+      <ul>
+        <li>📚 Deep dives into Laravel and cloud architecture</li>
+        <li>💭 Reflections on leadership, ADHD, and mental clarity</li>
+        <li>🛠️ Lessons from building systems and mentoring teams</li>
+        <li>🚧 Stories of mistakes, pivots, and unfinished thoughts</li>
+        <li>
+          🌲 Bits of life beyond tech — like photography, games, and national
+          parks
+        </li>
+      </ul>
+
+      <p>
+        I'm not here to teach from a mountaintop — I'm here to learn out loud.
+        If you're building, leading, struggling, dreaming, or just figuring it
+        out: I hope you find something useful here.
+      </p>
+
+      <p>
+        Check out my <a href="/blog">latest posts</a> or learn more <a
+          href="/about">about me</a
+        >. If anything resonates, feel free to reach out.
+      </p>
+
+      <p>
+        <em
+          >All thoughts and opinions expressed here are my own and do not
+          reflect those of my employer.</em
+        >
+      </p>
+    </main>
+    <Footer />
+  </body>
 </html>

@@ -1,8 +1,8 @@
 ---
-title: 'Your Post Title'
-description: 'Brief description of your post'
-pubDate: '{{ DATE }}'
-heroImage: '{{ HERO_IMAGE }}'
+title: "Your Post Title"
+description: "Brief description of your post"
+pubDate: "{{ DATE }}"
+heroImage: "{{ HERO_IMAGE }}"
 ---
 
 # {{ TITLE }}
@@ -13,7 +13,7 @@ Write your blog post content here. You can use all standard Markdown features:
 
 ### Subheadings
 
-**Bold text** and *italic text*
+**Bold text** and _italic text_
 
 - Bullet points
 - Are supported

@@ -1,8 +1,8 @@
 ---
-title: '{{ PRODUCT_NAME }} Review: {{ QUICK_VERDICT }}'
-description: 'An in-depth review of {{ PRODUCT_NAME }}'
-pubDate: '{{ DATE }}'
-heroImage: '{{ HERO_IMAGE }}'
+title: "{{ PRODUCT_NAME }} Review: {{ QUICK_VERDICT }}"
+description: "An in-depth review of {{ PRODUCT_NAME }}"
+pubDate: "{{ DATE }}"
+heroImage: "{{ HERO_IMAGE }}"
 ---
 
 # {{ PRODUCT_NAME }} Review: {{ QUICK_VERDICT }}
@@ -14,7 +14,7 @@ Brief introduction to {{ PRODUCT_NAME }} and what it does.
 ## Key Features
 
 - **Feature 1**: Description
-- **Feature 2**: Description  
+- **Feature 2**: Description
 - **Feature 3**: Description
 
 ## Pros

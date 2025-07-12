@@ -22,6 +22,7 @@ Welcome to my personal blog! This is where I share my thoughts, experiences, and
 ## 📝 Content
 
 You'll find articles about:
+
 - Web development tutorials and guides
 - Software engineering best practices
 - Technology reviews and insights
@@ -31,6 +32,7 @@ You'll find articles about:
 ## 🛠️ Development
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm or yarn
 
@@ -80,7 +82,7 @@ npm run deploy:preview
 
 - **GitHub**: [dgarbs51](https://github.com/dgarbs51)
 - **LinkedIn**: [devon-garbalosa](https://www.linkedin.com/in/devon-garbalosa/)
-- **X**: [@dgarbs51_](https://x.com/dgarbs51_)
+- **X**: [@dgarbs51\_](https://x.com/dgarbs51_)
 - **Blog**: [dgarbs51.com](https://dgarbs51.com)
 
 ## 📄 License

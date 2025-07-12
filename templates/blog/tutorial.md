@@ -1,8 +1,8 @@
 ---
-title: 'How to {{ TUTORIAL_TOPIC }}'
-description: 'A step-by-step guide to {{ TUTORIAL_TOPIC }}'
-pubDate: '{{ DATE }}'
-heroImage: '{{ HERO_IMAGE }}'
+title: "How to {{ TUTORIAL_TOPIC }}"
+description: "A step-by-step guide to {{ TUTORIAL_TOPIC }}"
+pubDate: "{{ DATE }}"
+heroImage: "{{ HERO_IMAGE }}"
 ---
 
 # How to {{ TUTORIAL_TOPIC }}
@@ -44,6 +44,7 @@ Continue with additional steps as needed.
 Common issues and their solutions:
 
 ### Problem: {{ COMMON_ISSUE }}
+
 **Solution:** Explanation of how to fix it.
 
 ## Conclusion
