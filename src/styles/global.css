@@ -5,8 +5,11 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #6441a5;
+	--accent-dark: #4b2c87;
+	--accent-light: #8b5fbf;
+	--purple-deep: #2d1b4e;
+	--purple-darker: #1a0f2e;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
