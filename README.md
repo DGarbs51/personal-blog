@@ -1,4 +1,4 @@
-# Devon Garbalosa Blog
+# Devon Garbalosa's Blog
 
 Welcome to my personal blog! This is where I share my thoughts, experiences, and learnings about software development, technology, and the ever-evolving world of tech.
 
