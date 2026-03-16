@@ -13,44 +13,20 @@ const dimensions = {
 };
 ---
 
-<div class="logo-container">
+<div class="flex items-center gap-3">
   <img
     src="/logo.svg"
     alt="Devon Garbalosa Logo"
     width={dimensions[size]}
     height={dimensions[size]}
-    class="logo-svg"
+    class="shrink-0 transition-transform duration-200 ease-in-out hover:scale-105"
   />
 
-  {showText && <span class="logo-text">Devon Garbalosa</span>}
+  {
+    showText && (
+      <span class="text-accent-600 dark:text-accent-400 text-[1.1em] font-bold tracking-tight">
+        Devon Garbalosa
+      </span>
+    )
+  }
 </div>
-
-<style>
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .logo-svg {
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-  }
-
-  .logo-svg:hover {
-    transform: scale(1.05);
-  }
-
-  .logo-text {
-    font-weight: 700;
-    color: var(--accent);
-    font-size: 1.1em;
-    letter-spacing: -0.02em;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .logo-text {
-      color: var(--accent-light);
-    }
-  }
-</style>

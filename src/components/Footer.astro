@@ -2,10 +2,16 @@
 const today = new Date();
 ---
 
-<footer>
+<footer
+  class="border-t border-zinc-200 px-4 pt-8 pb-24 text-center text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+>
   &copy; {today.getFullYear()} Devon Garbalosa. All rights reserved.
-  <div class="social-links">
-    <a href="https://github.com/dgarbs51" target="_blank">
+  <div class="mt-4 flex justify-center gap-4">
+    <a
+      href="https://github.com/dgarbs51"
+      target="_blank"
+      class="text-zinc-500 no-underline hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+    >
       <span class="sr-only">Follow Devon on GitHub</span>
       <svg
         viewBox="0 0 16 16"
@@ -19,7 +25,11 @@ const today = new Date();
         ></path></svg
       >
     </a>
-    <a href="https://www.linkedin.com/in/devon-garbalosa/" target="_blank">
+    <a
+      href="https://www.linkedin.com/in/devon-garbalosa/"
+      target="_blank"
+      class="text-zinc-500 no-underline hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+    >
       <span class="sr-only">Connect with Devon on LinkedIn</span>
       <svg
         viewBox="0 0 16 16"
@@ -33,7 +43,11 @@ const today = new Date();
         ></path></svg
       >
     </a>
-    <a href="https://x.com/dgarbs51_" target="_blank">
+    <a
+      href="https://x.com/dgarbs51_"
+      target="_blank"
+      class="text-zinc-500 no-underline hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+    >
       <span class="sr-only">Follow Devon on X</span>
       <svg
         viewBox="0 0 24 24"
@@ -49,24 +63,3 @@ const today = new Date();
     </a>
   </div>
 </footer>
-<style>
-  footer {
-    padding: 2em 1em 6em 1em;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-    color: rgb(var(--gray));
-    text-align: center;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-  }
-  .social-links a {
-    text-decoration: none;
-    color: rgb(var(--gray));
-  }
-  .social-links a:hover {
-    color: rgb(var(--gray-dark));
-  }
-</style>
