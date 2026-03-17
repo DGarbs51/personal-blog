@@ -8,6 +8,7 @@
   --font-family-sans:
     "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 
   --color-accent-50: oklch(0.95 0.02 305);
   --color-accent-100: oklch(0.9 0.045 305);
@@ -20,4 +21,20 @@
   --color-accent-800: oklch(0.25 0.18 305);
   --color-accent-900: oklch(0.22 0.14 305);
   --color-accent-950: oklch(0.17 0.1 305);
+
+  --shadow-card:
+    0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover:
+    0 1px 1px rgba(0, 0, 0, 0.06), 0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.08), 0 16px 32px rgba(0, 0, 0, 0.06),
+    0 24px 48px rgba(0, 0, 0, 0.04);
+}
+
+@utility font-heading {
+  font-family: var(--font-family-heading);
+}
+
+.prose :is(h1, h2, h3, h4) {
+  font-family: var(--font-family-heading);
 }

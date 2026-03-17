@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import HeroBackground from "../components/HeroBackground.astro";
 ---
 
 <!doctype html>
@@ -10,14 +11,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
+  <body
+    class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100"
+  >
+    <HeroBackground />
     <Header />
     <main
-      class="mx-auto max-w-4xl px-4 pt-8 pb-6 sm:px-6 sm:pt-16 sm:pb-8 lg:px-8"
+      class="relative mx-auto max-w-4xl grow px-4 pt-8 pb-6 sm:px-6 sm:pt-16 sm:pb-8 lg:px-8"
     >
       <section class="text-center">
         <h1
-          class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl dark:text-zinc-100"
+          class="font-heading text-3xl font-bold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl dark:text-zinc-100"
         >
           I Thought the <span class="text-accent-600 dark:text-accent-400"
             >Hard Part</span
@@ -56,7 +60,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           </a>
           <a
             href="/about"
-            class="w-full rounded-lg border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 sm:w-auto dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            class="w-full rounded-lg border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 sm:w-auto dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
           >
             More About Devon
           </a>

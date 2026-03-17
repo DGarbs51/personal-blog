@@ -5,10 +5,18 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { Image } from "astro:assets";
+import HeroBackground from "../components/HeroBackground.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { showBackLink?: boolean };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  showBackLink = true,
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -17,10 +25,35 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   </head>
 
   <body
-    class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100"
+    class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100"
   >
+    <HeroBackground />
     <Header />
-    <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+    <main
+      class="relative z-10 mx-auto max-w-4xl grow px-4 py-8 sm:px-6 lg:px-8"
+    >
+      {
+        showBackLink && (
+          <a
+            href="/blog"
+            class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="size-4"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Back to Blog Posts
+          </a>
+        )
+      }
       <article>
         {
           heroImage && (
