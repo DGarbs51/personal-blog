@@ -10,52 +10,58 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+  <body class="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
     <Header />
-    <main class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <main
+      class="mx-auto max-w-4xl px-4 pt-8 pb-6 sm:px-6 sm:pt-16 sm:pb-8 lg:px-8"
+    >
       <section class="text-center">
         <h1
-          class="text-5xl font-bold tracking-tight text-zinc-900 sm:text-6xl dark:text-white"
+          class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl dark:text-zinc-100"
         >
-          Building Software Is Easy.
+          I Thought the <span class="text-accent-600 dark:text-accent-400"
+            >Hard Part</span
+          >
           <br />
-          Building Everything Around It Isn't.
+          Was the <span class="text-accent-600 dark:text-accent-400">Code</span>
         </h1>
         <p
-          class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400"
+          class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:mt-6 sm:text-lg md:text-xl dark:text-zinc-400"
         >
-          I'm Devon — a Solutions Engineer at Laravel, a dad, and someone who's
-          spent a decade learning that the hardest problems in tech aren't
-          technical. I've built cloud-native platforms in highly regulated
-          environments, led teams through ambiguity, and visited 34 national
-          parks along the way.
+          I'm Devon — Solutions Engineer at Laravel, husband, father, and
+          someone who learned a few Excel formulas and thought that meant
+          software engineering would be easy. A decade later, I've built
+          cloud-native platforms in highly regulated environments, discovered an
+          entire dimension nobody warned me about, and visited 34 national parks
+          somewhere in between.
         </p>
         <p
-          class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-500 dark:text-zinc-500"
+          class="mx-auto mt-6 max-w-2xl text-lg leading-snug font-medium text-zinc-900 sm:mt-8 sm:text-xl md:text-2xl dark:text-zinc-100"
         >
-          This is where I think out loud about leadership, Laravel, ADHD, and
-          what it actually looks like to choose finishing over starting.
+          This is where I think out loud about that other dimension —
+          leadership, Laravel, ADHD, and why <span
+            class="text-accent-600 dark:text-accent-400">shipping</span
+          > is so damn hard when
+          <span class="text-accent-600 dark:text-accent-400">starting</span> is your
+          favorite part.
         </p>
-        <div class="mt-10 flex items-center justify-center gap-4">
+        <div
+          class="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4"
+        >
           <a
             href="/blog"
-            class="bg-accent-600 hover:bg-accent-500 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors"
+            class="bg-accent-600 hover:bg-accent-500 dark:bg-accent-400 dark:hover:bg-accent-300 w-full rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors sm:w-auto dark:text-zinc-900"
           >
-            Read the Latest
+            Read the Blog
           </a>
           <a
             href="/about"
-            class="rounded-lg border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            class="w-full rounded-lg border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 sm:w-auto dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
           >
-            Get to Know Me
+            More About Devon
           </a>
         </div>
       </section>
-
-      <p class="mt-16 text-center text-xs text-zinc-400 dark:text-zinc-600">
-        All thoughts and opinions expressed here are my own and do not reflect
-        those of my employer.
-      </p>
     </main>
     <Footer />
   </body>

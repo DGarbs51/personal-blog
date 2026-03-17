@@ -36,7 +36,3 @@ I’m not closing the door on new adventures. They’ll come. They always do. Bu
 The trail hasn’t been straight. But it’s been mine. And now, more than ever, I know exactly where I stand—right here, with my team, my product, and the fire I lit six years ago.
 
 And I’m not done yet.
-
----
-
-_The thoughts and opinions expressed in this post are my own and do not reflect those of my employer._

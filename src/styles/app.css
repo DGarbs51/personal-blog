@@ -9,15 +9,15 @@
     "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --color-accent-50: oklch(0.962 0.018 254.139);
-  --color-accent-100: oklch(0.93 0.034 254.139);
-  --color-accent-200: oklch(0.87 0.065 254.139);
-  --color-accent-300: oklch(0.785 0.115 254.139);
-  --color-accent-400: oklch(0.673 0.182 264.052);
-  --color-accent-500: oklch(0.585 0.233 277.117);
-  --color-accent-600: oklch(0.511 0.262 276.966);
-  --color-accent-700: oklch(0.457 0.24 277.023);
-  --color-accent-800: oklch(0.398 0.195 277.366);
-  --color-accent-900: oklch(0.359 0.144 278.697);
-  --color-accent-950: oklch(0.257 0.09 281.288);
+  --color-accent-50: oklch(0.95 0.02 305);
+  --color-accent-100: oklch(0.9 0.045 305);
+  --color-accent-200: oklch(0.82 0.09 305);
+  --color-accent-300: oklch(0.72 0.15 305);
+  --color-accent-400: oklch(0.62 0.2 305);
+  --color-accent-500: oklch(0.42 0.27 305);
+  --color-accent-600: oklch(0.35 0.25 305);
+  --color-accent-700: oklch(0.3 0.22 305);
+  --color-accent-800: oklch(0.25 0.18 305);
+  --color-accent-900: oklch(0.22 0.14 305);
+  --color-accent-950: oklch(0.17 0.1 305);
 }
