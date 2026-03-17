@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@source not "../../.claude/**";
+@source not "../../.cursor/**";
+@source not "../../.copilot/**";
+@source not "../../**/*.md";
+
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));

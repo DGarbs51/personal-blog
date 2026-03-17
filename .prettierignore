@@ -5,3 +5,14 @@ dist
 .env*
 .DS_Store
 Thumbs.db
+wrangler.jsonc
+tsconfig.json
+solo.yml
+README.md
+.claude/
+bun.lock
+package.json
+CLAUDE.md
+prettier.config.mjs
+astro.config.mjs
+.prettierrc.mjs
