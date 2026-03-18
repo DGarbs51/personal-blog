@@ -8,8 +8,6 @@ The app started as a solo project. One developer, one problem to solve — an Ex
 
 Four years later I was managing 16 people across two countries, responsible for a portfolio of mission-critical apps, and wondering when exactly I'd stopped building things.
 
----
-
 ## The Builder
 
 The first version was just a web form. A better way to collect data that didn't hold the entire team hostage every time someone forgot to close the spreadsheet before lunch. It worked. People used it. Then a processing team needed a guided intake form to cut down on not-in-good-order requests over the phone. So I built that too.
@@ -27,8 +25,6 @@ I loved this work. The kind where you lose three hours and look up and it's dark
 Here's what nobody tells you about building something successful inside a big company: the reward for building well is never "keep building." The org wraps around your work like a vine. More users means more requirements means more developers means someone needs to manage all of it.
 
 That someone was me.
-
----
 
 ## The Trap
 
@@ -56,8 +52,6 @@ Here's the detail that still gets me: at one point I stepped away from managing 
 
 That's not a knock on them. They were capable people. It's a knock on me — on my inability to turn what I could do alone into something a team could do together. That gap was eating me alive.
 
----
-
 ## The Post I Wrote
 
 In July 2025, I wrote a [blog post](https://dgarbs51.com/blog/fork-in-the-road/) about choosing to stay. I called it "The Fork in the Road." Loyalty. Finishing what I started. Choosing the harder path because it was the right one.
@@ -69,8 +63,6 @@ I was also in denial.
 Both of those things were true at the same time. Nobody tells you that about big decisions. You don't go from "I'm staying" to "I'm leaving" in a straight line. You hold both at once until one of them breaks.
 
 The thing that broke wasn't my commitment. It was me.
-
----
 
 ## The Exit
 
@@ -101,8 +93,6 @@ Some of my closest friends knew what Laravel meant to me. They got it. One of th
 I took the role.
 
 Sixteen reports to zero. Fortune 100 to Series A. Engineering management to solutions engineering — a title I'd never held, in a function I didn't fully understand.
-
----
 
 ## What I'm still figuring out
 
