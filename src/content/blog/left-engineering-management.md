@@ -2,6 +2,7 @@
 title: "I left an engineering management role at a Fortune 100 for a job I'd never done. It wasn't a step backward."
 description: "From solo builder to managing 16 people across two countries, to walking away for a role at Laravel. A story about what the career ladder gets wrong."
 pubDate: "Mar 17 2026"
+heroImage: "../../assets/left-engineering-management.webp"
 ---
 
 The app started as a solo project. One developer, one problem to solve — an Excel form on a LAN drive that locked everyone else out when somebody went to lunch with it open. That was it. That was the whole brief. Build something better than that.
