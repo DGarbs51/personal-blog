@@ -1,4 +1,6 @@
 ---
+import LogoIcon from './LogoIcon.astro';
+
 interface Props {
   size?: "small" | "medium" | "large";
   showText?: boolean;
@@ -7,20 +9,24 @@ interface Props {
 const { size = "medium", showText = true } = Astro.props;
 
 const dimensions = {
-  small: "28",
-  medium: "36",
-  large: "48",
+  small: "w-8 h-8",
+  medium: "w-12 h-12",
+  large: "w-16 h-16",
+};
+
+const matteSize = {
+  small: "p-1 -my-1.5",
+  medium: "p-1 -my-2.5",
+  large: "p-1 -my-3",
 };
 ---
 
 <div class="flex items-center gap-3">
-  <img
-    src="/logo.svg"
-    alt="DGarbs51 Logo"
-    width={dimensions[size]}
-    height={dimensions[size]}
-    class="shrink-0 transition-transform duration-200 ease-in-out hover:scale-105"
-  />
+  <span class={`${matteSize[size]} inline-flex items-center justify-center rounded-md bg-zinc-100 shadow-sm dark:bg-white`}>
+    <LogoIcon
+      class={`${dimensions[size]} text-accent-900 dark:text-accent-300 shrink-0 transition-transform duration-200 ease-in-out hover:scale-105`}
+    />
+  </span>
 
   {
     showText && (

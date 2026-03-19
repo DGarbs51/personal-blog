@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+import logoSrc from "../../public/logo.png";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<Image src={logoSrc} alt="DGarbs51 logo" class={className} loading="eager" />
