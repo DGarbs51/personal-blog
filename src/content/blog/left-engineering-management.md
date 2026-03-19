@@ -67,7 +67,7 @@ The thing that broke wasn't my commitment. It was me.
 
 ## The Exit
 
-A meetup changed everything. PHPxNYC, organized by Joe Tananbaum — one of the original Laravel employees. Dave Hicking was there too, another Laravel employee. Dave had been my team lead's college roommate. I'd met him at LaraconUS 2024 when he was still at Userscape.
+A meetup changed everything. PHPxNYC, organized by Joe Tannenbaum — one of the original Laravel employees. Dave Hicking was there too, another Laravel employee. Dave had been my team lead's college roommate. I'd met him at LaraconUS 2024 when he was still at Userscape.
 
 I asked them what it was like working at Laravel. How they got hired. Whether there were any openings.
 
