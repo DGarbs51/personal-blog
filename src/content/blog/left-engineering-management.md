@@ -55,7 +55,7 @@ That's not a knock on them. They were capable people. It's a knock on me — on 
 
 ## The Post I Wrote
 
-In July 2025, I wrote a [blog post](https://dgarbs51.com/blog/fork-in-the-road/) about choosing to stay. I called it "The Fork in the Road." Loyalty. Finishing what I started. Choosing the harder path because it was the right one.
+In July 2025, I wrote a [blog post](/blog/fork-in-the-road/) about choosing to stay. I called it "The Fork in the Road." Loyalty. Finishing what I started. Choosing the harder path because it was the right one.
 
 I meant every word of it.
 
