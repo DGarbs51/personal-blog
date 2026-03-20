@@ -56,17 +56,21 @@ I configured k6 Cloud to ramp up to 20,000 virtual users and hold there for an h
 
 ![Laravel Cloud Application Metrics dashboard showing the full test run](/images/laravel-cloud-load-test-no-db.png)
 
-The platform sustained 17,000 requests per second at peak, settling into the 10-15k range for the sustained portion of the test.
+The platform sustained 17,000 requests per second at peak, settling into the 10-15k range for the sustained portion of the test. Here's the k6 Cloud summary:
 
-I want to be specific about what that means, because "17k RPS" is easy to say and hard to appreciate. That's roughly a million requests per minute, hammering a single Laravel application, through the full middleware stack, with 15% of those requests deliberately holding connections open for 33 seconds each.
+![k6 Cloud test results showing 39.6M requests, 17,935 peak RPS, and 157ms P95 response time](/images/laravel-cloud-k6-results.png)
+
+39.6 million requests over the course of the test. 173 HTTP failures — out of 39.6 million. Peak RPS of 17,935. P95 response time of 157ms, and that line barely moved the entire run.
+
+I want to be specific about what that means, because "17k RPS" is easy to say and hard to appreciate. That's roughly a million requests per minute, hammering a single Laravel application, through the full middleware stack, with 15% of those requests deliberately holding connections open for 33 seconds each. And the P95 held at 157ms the whole time.
 
 The autoscaling behavior was wild to watch in real time. The replica count spiked to around 50 during the initial ramp as Cloud scrambled to absorb the sudden load. Then it settled into the 10-20 range once the platform found its rhythm.
 
-CPU usage hit 150,000 mCore at peak. Memory climbed to about 1.25 TiB. The HTTP Success donut stayed at 100% the entire time.
+CPU usage stayed below 150,000 mCore across all replicas. Memory usage stayed low — the large numbers on the dashboard are the aggregate limits across all the replicas, not actual consumption. The HTTP Success donut stayed at 100% the entire time.
 
 And zero replica restarts. Fifty replicas spinning up under heavy load and not a single one crashed.
 
-Latency held steady at around 101ms. The response time line on the dashboard barely moved even as the request volume ramped. The platform was doing exactly what it's supposed to do — absorbing the load by scaling horizontally without me touching anything.
+The platform was doing exactly what it's supposed to do — absorbing the load by scaling horizontally without me touching anything.
 
 No errors. No degradation. No manual intervention. Just the app eating requests for an hour straight.
 
@@ -113,7 +117,7 @@ public function index(Request $request): JsonResponse
 
 Reads and writes. Paginated queries and inserts. Not a toy endpoint.
 
-The database was PlanetScale Metal Postgres, connected to the Laravel Cloud private network via PrivateLink with PgBouncer available for connection pooling. I did not tune the Postgres instance for this workload. No connection pool optimization. No PgBouncer adjustments. Out of the box.
+The database was PlanetScale Metal Postgres, connected to the Laravel Cloud private network via PrivateLink with PgBouncer available for connection pooling. Why PlanetScale and not Cloud's integrated databases? Because this whole test started from a customer's setup. They were running PlanetScale Metal Postgres, so I matched their stack. I did not tune the Postgres instance for this workload. No connection pool optimization. No PgBouncer adjustments. Out of the box.
 
 This is where things got ugly.
 
@@ -125,7 +129,7 @@ The test peaked at around 4,000 RPS. But that number doesn't tell the real story
 
 Now look at what Cloud was doing while this happened.
 
-50 replicas running. CPU sustained at 150,000-175,000 mCore against a 200,000 mCore limit — the platform was running hot, throwing everything it had at the problem. Memory peaked around 640 GiB. Zero replica restarts. Cloud scaled to 50 instances and held them stable the entire time.
+50 replicas running. CPU usage climbed to around 100,000 mCore across all replicas. Memory hit about 128 GiB. Zero replica restarts. Cloud scaled to 50 instances and held them stable the entire time.
 
 The platform was *fighting* for this app. It scaled aggressively, stayed up, didn't crash a single replica. The compute side did everything right.
 
@@ -143,7 +147,7 @@ If you're evaluating Laravel Cloud for a production workload, here's what these 
 
 **The platform layer is not your constraint.** At 17k RPS through full middleware with realistic latency jitter, Cloud's compute and autoscaling handled it without breaking a sweat. If your app is slow, it's probably not because of where it's running.
 
-**Your database configuration is almost certainly the bottleneck.** Cloud scaled to 50 replicas and threw 175k mCore of CPU at the DB test. It was ready to serve more. The unconfigured Postgres instance was the ceiling — 46% errors, latency in the hours. Once I tuned it, the database kept up. That's not a Cloud problem or a database vendor problem. That's a "you need to tune your database" problem, and it's the same problem you'd have on any platform with any provider.
+**Your database configuration is almost certainly the bottleneck.** Cloud scaled to 50 replicas and was nowhere near its compute limits during the DB test. It was ready to serve more. The unconfigured Postgres instance was the ceiling — 46% errors, latency in the hours. Once I tuned it, the database kept up. That's not a Cloud problem or a database vendor problem. That's a "you need to tune your database" problem, and it's the same problem you'd have on any platform with any provider.
 
 **Autoscaling works.** I didn't pre-provision anything. I didn't set capacity thresholds. I turned on autoscaling, pointed 20,000 virtual users at it, and Cloud figured it out. For the kind of "I don't want to manage infrastructure" developer Cloud is built for, that's the whole point.
 
