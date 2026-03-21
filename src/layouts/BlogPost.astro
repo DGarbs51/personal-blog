@@ -90,5 +90,44 @@ const {
       </article>
     </main>
     <Footer />
+    <script is:inline>
+      (function () {
+        if (typeof fathom === "undefined") return;
+
+        // Scroll depth tracking — fire once per threshold
+        var scrollFired = {};
+        var thresholds = [25, 50, 75, 100];
+
+        window.addEventListener("scroll", function () {
+          var scrollTop = window.scrollY || document.documentElement.scrollTop;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight <= 0) return;
+          var percent = Math.round((scrollTop / docHeight) * 100);
+
+          for (var i = 0; i < thresholds.length; i++) {
+            var t = thresholds[i];
+            if (percent >= t && !scrollFired[t]) {
+              scrollFired[t] = true;
+              fathom.trackEvent("scroll_depth_" + t);
+            }
+          }
+        });
+
+        // Code block copy-to-clipboard tracking
+        document.querySelectorAll("pre code").forEach(function (block) {
+          block.addEventListener("copy", function () {
+            fathom.trackEvent("code_block_copy");
+          });
+        });
+
+        // Outbound link click tracking
+        document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+          if (link.hostname === window.location.hostname) return;
+          link.addEventListener("click", function () {
+            fathom.trackEvent("outbound_click: " + link.hostname);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
