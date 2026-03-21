@@ -30,13 +30,13 @@ const posts = (await getCollection("blog")).sort(
       >
         Blog Posts
       </h1>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="grid auto-rows-[1fr] grid-cols-1 gap-6 md:grid-cols-2">
         {
           posts.map(post => (
             <article>
               <a
                 href={`/blog/${post.id}/`}
-                class="group shadow-card hover:shadow-card-hover block overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 dark:border-zinc-800 dark:bg-zinc-900"
+                class="group shadow-card hover:shadow-card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 dark:border-zinc-800 dark:bg-zinc-900"
               >
                 {post.data.heroImage && (
                   <Image
@@ -47,7 +47,7 @@ const posts = (await getCollection("blog")).sort(
                     class="h-48 w-full object-cover"
                   />
                 )}
-                <div class="bg-white p-5 dark:bg-zinc-900">
+                <div class="flex grow flex-col bg-white p-5 dark:bg-zinc-900">
                   <h2 class="font-heading group-hover:text-accent-600 dark:group-hover:text-accent-400 text-lg font-semibold text-zinc-900 transition-colors dark:text-white">
                     {post.data.title}
                   </h2>
