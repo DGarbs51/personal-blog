@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import HeroBackground from "../components/HeroBackground.astro";
+import Giscus from "../components/Giscus.astro";
 
 type Props = CollectionEntry<"blog">["data"] & { showBackLink?: boolean };
 
@@ -88,6 +89,7 @@ const {
           <slot />
         </div>
       </article>
+      <Giscus />
     </main>
     <Footer />
     <script is:inline>

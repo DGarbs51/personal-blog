@@ -1,0 +1,58 @@
+<section class="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-700">
+  <div class="giscus"></div>
+</section>
+
+<script is:inline>
+  (function () {
+    function getTheme() {
+      return document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
+    }
+
+    function loadGiscus() {
+      var container = document.querySelector(".giscus");
+      if (!container || container.querySelector("iframe")) return;
+
+      var script = document.createElement("script");
+      script.src = "https://giscus.app/client.js";
+      script.setAttribute("data-repo", "dgarbs51/personal-blog");
+      script.setAttribute("data-repo-id", "R_kgDOPLfbgQ");
+      script.setAttribute("data-category", "Announcements");
+      script.setAttribute("data-category-id", "DIC_kwDOPLfbgc4C453H");
+      script.setAttribute("data-mapping", "pathname");
+      script.setAttribute("data-strict", "0");
+      script.setAttribute("data-reactions-enabled", "1");
+      script.setAttribute("data-emit-metadata", "0");
+      script.setAttribute("data-input-position", "top");
+      script.setAttribute("data-theme", getTheme());
+      script.setAttribute("data-lang", "en");
+      script.setAttribute("data-loading", "lazy");
+      script.setAttribute("crossorigin", "anonymous");
+      script.async = true;
+      container.appendChild(script);
+    }
+
+    // Sync Giscus theme when user toggles dark mode
+    var toggle = document.getElementById("theme-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        // Small delay to let the class toggle first
+        setTimeout(function () {
+          var iframe = document.querySelector("iframe.giscus-frame");
+          if (iframe) {
+            iframe.contentWindow.postMessage(
+              { giscus: { setConfig: { theme: getTheme() } } },
+              "https://giscus.app"
+            );
+          }
+        }, 50);
+      });
+    }
+
+    loadGiscus();
+
+    // Re-init on Astro view transitions
+    document.addEventListener("astro:after-swap", loadGiscus);
+  })();
+</script>
