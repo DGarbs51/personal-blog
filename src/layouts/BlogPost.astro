@@ -26,7 +26,14 @@ const {
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} image={heroImage} type="Article" datePublished={pubDate} dateModified={updatedDate} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={heroImage}
+      type="Article"
+      datePublished={pubDate}
+      dateModified={updatedDate}
+    />
   </head>
 
   <body
@@ -106,7 +113,8 @@ const {
 
         window.addEventListener("scroll", function () {
           var scrollTop = window.scrollY || document.documentElement.scrollTop;
-          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          var docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
           if (docHeight <= 0) return;
           var percent = Math.round((scrollTop / docHeight) * 100);
 
