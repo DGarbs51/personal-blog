@@ -6,16 +6,25 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import HeroBackground from "../../components/HeroBackground.astro";
+import type { GetStaticPaths } from "astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  return paginate(posts, { pageSize: 9 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title="Blog | DGarbs51" description="Articles about development, leadership, Laravel, and lessons learned building software." />
+    <BaseHead
+      title={page.currentPage === 1 ? "Blog | DGarbs51" : `Blog — Page ${page.currentPage} | DGarbs51`}
+      description="Articles about development, leadership, Laravel, and lessons learned building software."
+    />
   </head>
   <body
     class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
@@ -23,16 +32,16 @@ const posts = (await getCollection("blog")).sort(
     <HeroBackground />
     <Header />
     <main
-      class="relative z-10 mx-auto max-w-5xl grow px-4 py-12 sm:px-6 lg:px-8"
+      class="relative z-10 mx-auto max-w-7xl grow px-4 py-12 sm:px-6 lg:px-8"
     >
       <h1
         class="font-heading mb-8 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white"
       >
         Blog Posts
       </h1>
-      <div class="grid auto-rows-[1fr] grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="grid auto-rows-[1fr] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
-          posts.map(post => (
+          page.data.map(post => (
             <article>
               <a
                 href={`/blog/${post.id}/`}
@@ -65,6 +74,42 @@ const posts = (await getCollection("blog")).sort(
           ))
         }
       </div>
+
+      {
+        page.lastPage > 1 && (
+          <nav class="mt-10 flex items-center justify-center gap-4" aria-label="Blog pagination">
+            {page.url.prev ? (
+              <a
+                href={page.url.prev}
+                class="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              >
+                &larr; Previous
+              </a>
+            ) : (
+              <span class="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:text-zinc-600">
+                &larr; Previous
+              </span>
+            )}
+
+            <span class="text-sm text-zinc-500 dark:text-zinc-400">
+              Page {page.currentPage} of {page.lastPage}
+            </span>
+
+            {page.url.next ? (
+              <a
+                href={page.url.next}
+                class="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              >
+                Next &rarr;
+              </a>
+            ) : (
+              <span class="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:text-zinc-600">
+                Next &rarr;
+              </span>
+            )}
+          </nav>
+        )
+      }
     </main>
     <Footer />
   </body>
