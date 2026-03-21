@@ -125,13 +125,13 @@ This is where things got ugly.
 
 The test peaked at around 4,000 RPS. But that number doesn't tell the real story. Look at that dashboard.
 
-46% error rate. Nearly half of all requests failed — every single error was a database timeout or connection failure. Latency spiked to *hours*. Not seconds. Hours. The requests weren't failing fast. They were hanging, waiting for a database that couldn't keep up, and eventually timing out.
+46% error rate. Nearly half of all requests failed — every single error was a database timeout or connection failure. Latency spiked to _hours_. Not seconds. Hours. The requests weren't failing fast. They were hanging, waiting for a database that couldn't keep up, and eventually timing out.
 
 Now look at what Cloud was doing while this happened.
 
 50 replicas running. CPU usage climbed to around 100,000 mCore across all replicas. Memory hit about 128 GiB. Zero replica restarts. Cloud scaled to 50 instances and held them stable the entire time.
 
-The platform was *fighting* for this app. It scaled aggressively, stayed up, didn't crash a single replica. The compute side did everything right.
+The platform was _fighting_ for this app. It scaled aggressively, stayed up, didn't crash a single replica. The compute side did everything right.
 
 The database was the wall.
 
