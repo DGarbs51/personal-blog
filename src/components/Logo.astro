@@ -1,5 +1,5 @@
 ---
-import LogoIcon from './LogoIcon.astro';
+import LogoIcon from "./LogoIcon.astro";
 
 interface Props {
   size?: "small" | "medium" | "large";
@@ -22,7 +22,9 @@ const matteSize = {
 ---
 
 <div class="flex items-center gap-3">
-  <span class={`${matteSize[size]} inline-flex items-center justify-center rounded-md bg-zinc-100 shadow-xs dark:bg-white`}>
+  <span
+    class={`${matteSize[size]} inline-flex items-center justify-center rounded-md bg-zinc-100 shadow-xs dark:bg-white`}
+  >
     <LogoIcon
       class={`${dimensions[size]} text-accent-900 dark:text-accent-300 shrink-0 transition-transform duration-200 ease-in-out hover:scale-105`}
     />
