@@ -44,5 +44,11 @@ import HeroBackground from "../components/HeroBackground.astro";
       </div>
     </main>
     <Footer />
+    <script is:inline>
+      window.addEventListener("load", function () {
+        if (typeof fathom === "undefined") return;
+        fathom.trackEvent("404: " + window.location.pathname);
+      });
+    </script>
   </body>
 </html>

@@ -97,7 +97,7 @@ const {
     </main>
     <Footer />
     <script is:inline>
-      (function () {
+      window.addEventListener("load", function () {
         if (typeof fathom === "undefined") return;
 
         // Scroll depth tracking — fire once per threshold
@@ -133,7 +133,7 @@ const {
             fathom.trackEvent("outbound_click: " + link.hostname);
           });
         });
-      })();
+      });
     </script>
   </body>
 </html>
