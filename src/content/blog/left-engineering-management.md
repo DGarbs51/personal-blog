@@ -33,7 +33,7 @@ By 2023 I had three sub-teams. Engineers across the US and India. A manager titl
 
 The calendar filled up fast. Tetris, but every piece is a meeting and none of them fit.
 
-I sat through the same meeting five times on the same topic. I got on 1-on-1s and heard someone complain about a teammate not shipping what they needed — meanwhile they weren't shipping what *I* needed. And then the one that really got me: my team lead told me he'd been gatekeeping problems so I wouldn't get bogged down. He thought he was helping. He thought I was so buried that his job was to shield me from more work.
+I sat through the same meeting five times on the same topic. I got on 1-on-1s and heard someone complain about a teammate not shipping what they needed — meanwhile they weren't shipping what _I_ needed. And then the one that really got me: my team lead told me he'd been gatekeeping problems so I wouldn't get bogged down. He thought he was helping. He thought I was so buried that his job was to shield me from more work.
 
 No, man. Bring me the roadblocks. That's the whole point.
 
