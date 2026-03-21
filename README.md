@@ -74,7 +74,7 @@ npm run deploy:preview
 │   ├── layouts/     # Page layouts
 │   ├── pages/       # Routes and pages
 │   └── styles/      # Global styles
-├── astro.config.mjs # Astro configuration
+├── astro.config.js # Astro configuration
 └── wrangler.toml    # Cloudflare deployment config
 ```
 

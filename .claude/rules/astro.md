@@ -385,7 +385,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 </head>
 ```
 
-- Set `site` in `astro.config.mjs` — required for canonical URLs, sitemap, RSS.
+- Set `site` in `astro.config.js` — required for canonical URLs, sitemap, RSS.
 - Use consistent `trailingSlash` configuration.
 - Use semantic HTML (`<article>`, `<nav>`, `<main>`, `<header>`, `<footer>`).
 
@@ -429,7 +429,7 @@ const { href, external = false, ...attrs } = Astro.props;
 ### Fonts (Astro 6)
 
 ```typescript
-// astro.config.mjs
+// astro.config.js
 import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
@@ -474,7 +474,7 @@ export default defineConfig({
 ### Security
 
 ```typescript
-// astro.config.mjs
+// astro.config.js
 export default defineConfig({
   security: {
     checkOrigin: true, // CSRF protection (default for SSR)
