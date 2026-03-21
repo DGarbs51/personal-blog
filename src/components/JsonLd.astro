@@ -1,0 +1,45 @@
+---
+interface Props {
+  type: "WebSite" | "Article";
+  title: string;
+  description: string;
+  url: URL;
+  image?: string;
+  datePublished?: Date;
+  dateModified?: Date;
+}
+
+const { type, title, description, url, image, datePublished, dateModified } =
+  Astro.props;
+
+const schema =
+  type === "Article"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description,
+        url: url.href,
+        ...(image && { image }),
+        ...(datePublished && {
+          datePublished: datePublished.toISOString(),
+        }),
+        ...(dateModified && {
+          dateModified: dateModified.toISOString(),
+        }),
+        author: {
+          "@type": "Person",
+          name: "Devon Garbalosa",
+          url: "https://dgarbs51.com",
+        },
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: title,
+        description,
+        url: url.href,
+      };
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

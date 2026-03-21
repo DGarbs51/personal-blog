@@ -1,0 +1,54 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBackground from "../components/HeroBackground.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Page Not Found | DGarbs51" description="The page you're looking for doesn't exist." />
+  </head>
+  <body
+    class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100"
+  >
+    <HeroBackground />
+    <Header />
+    <main
+      class="relative z-10 mx-auto flex max-w-4xl grow flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8"
+    >
+      <h1
+        class="font-heading text-6xl font-bold tracking-tight text-zinc-900 sm:text-8xl dark:text-zinc-100"
+      >
+        404
+      </h1>
+      <p
+        class="mt-4 text-lg text-zinc-600 sm:text-xl dark:text-zinc-400"
+      >
+        This page doesn't exist, but hey — at least you found something.
+      </p>
+      <div class="mt-8 flex gap-4">
+        <a
+          href="/"
+          class="bg-accent-600 hover:bg-accent-500 dark:bg-accent-400 dark:hover:bg-accent-300 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-xs transition-colors dark:text-zinc-900"
+        >
+          Go Home
+        </a>
+        <a
+          href="/blog"
+          class="rounded-lg border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        >
+          Read the Blog
+        </a>
+      </div>
+    </main>
+    <Footer />
+    <script is:inline>
+      window.addEventListener("load", function () {
+        if (typeof fathom === "undefined") return;
+        fathom.trackEvent("404: " + window.location.pathname);
+      });
+    </script>
+  </body>
+</html>
