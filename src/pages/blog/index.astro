@@ -2,7 +2,6 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { Image } from "astro:assets";
@@ -16,7 +15,7 @@ const posts = (await getCollection("blog")).sort(
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title="Blog | DGarbs51" description="Articles about development, leadership, Laravel, and lessons learned building software." />
   </head>
   <body
     class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
@@ -44,7 +43,7 @@ const posts = (await getCollection("blog")).sort(
                     width={720}
                     height={360}
                     src={post.data.heroImage}
-                    alt=""
+                    alt={`Hero image for ${post.data.title}`}
                     class="h-48 w-full object-cover"
                   />
                 )}

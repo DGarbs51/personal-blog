@@ -21,7 +21,7 @@ const {
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} image={heroImage} />
+    <BaseHead title={title} description={description} image={heroImage} type="Article" datePublished={pubDate} dateModified={updatedDate} />
   </head>
 
   <body
@@ -62,7 +62,7 @@ const {
                 width={1020}
                 height={510}
                 src={heroImage}
-                alt=""
+                alt={`Hero image for ${title}`}
                 loading="eager"
                 class="w-full rounded-2xl shadow-lg"
               />
