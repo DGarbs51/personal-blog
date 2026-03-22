@@ -10,6 +10,7 @@ Astro 6 static blog deployed to Cloudflare Pages.
 - **Deploy:** Cloudflare Pages via git integration (auto-deploys on push)
 - **Config:** `wrangler.jsonc` for Cloudflare Pages settings
 - **Formatting:** Prettier with Astro and Tailwind plugins
+- **Linting:** ESLint for root `*.js` tooling/config (Espree needs explicit `sourceType: module`)
 - **Package manager:** Bun (bun.lock)
 
 ## Commands
@@ -18,6 +19,7 @@ Astro 6 static blog deployed to Cloudflare Pages.
 bun dev              # Start dev server
 bun run build        # Production build
 bun run preview      # Preview production build
+bun run lint         # ESLint (root JS / shared tooling)
 bun run format       # Prettier
 ```
 
