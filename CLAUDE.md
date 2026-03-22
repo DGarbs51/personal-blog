@@ -9,8 +9,8 @@ Astro 6 static blog deployed to Cloudflare Pages.
 - **Images:** Sharp for optimization
 - **Deploy:** Cloudflare Pages via git integration (auto-deploys on push)
 - **Config:** `wrangler.jsonc` for Cloudflare Pages settings
-- **Linting:** ESLint + Prettier with Astro and Tailwind plugins
-- **Git hooks:** Husky + lint-staged (pre-commit: lint + format)
+- **Formatting:** Prettier with Astro and Tailwind plugins
+- **Linting:** ESLint for root `*.js` tooling/config (Espree needs explicit `sourceType: module`)
 - **Package manager:** Bun (bun.lock)
 
 ## Commands
@@ -19,9 +19,8 @@ Astro 6 static blog deployed to Cloudflare Pages.
 bun dev              # Start dev server
 bun run build        # Production build
 bun run preview      # Preview production build
-bun run lint         # ESLint
+bun run lint         # ESLint (root JS / shared tooling)
 bun run format       # Prettier
-bun run format:check # Prettier (check only)
 ```
 
 ## Project Structure
@@ -37,7 +36,7 @@ src/
 
 ## Guidelines
 
-- Site URL: https://dgarbs51.com (set in astro.config.mjs)
+- Site URL: https://dgarbs51.com (set in `astro.config.js`)
 - Output mode: static (pre-rendered)
 - Tailwind v4 uses CSS-first config — all theme customization lives in `src/styles/app.css`
 - Dark mode uses `.dark` class on `<html>` with `@custom-variant dark` in Tailwind

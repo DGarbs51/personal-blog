@@ -1,0 +1,18 @@
+# JavaScript analyzer: https://docs.deepsource.com/docs/analyzers-javascript
+version = 1
+
+exclude_patterns = [
+  "dist/**",
+  ".astro/**",
+  "node_modules/**",
+]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  module_system = "es-modules"
+  dialect = "typescript"
+  environment = ["nodejs", "browser"]
+  cyclomatic_complexity_threshold = "high"
