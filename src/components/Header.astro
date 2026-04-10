@@ -2,28 +2,126 @@
 import HeaderLink from "./HeaderLink.astro";
 import Logo from "./Logo.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import { SITE_TITLE } from "../consts";
 
-interface Props {}
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
+const subpath = pathname.match(/[^/]+/g);
+const currentPath = "/" + (subpath?.[0] || "");
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
+];
 ---
 
 <header
-  class="sticky top-0 z-50 bg-white px-4 shadow-xs dark:border-b dark:border-zinc-700 dark:bg-zinc-800 dark:shadow-none"
+  class="sticky top-0 z-50 bg-white shadow-xs dark:border-b dark:border-white/10 dark:bg-zinc-800 dark:shadow-none"
 >
-  <nav class="mx-auto flex max-w-5xl items-center justify-between">
-    <h2 class="font-heading m-0 text-base whitespace-nowrap">
-      <a
-        href="/"
-        class="flex items-center gap-2 text-zinc-800 no-underline dark:text-zinc-200"
-      >
-        <Logo size="small" showText={false} />
-      </a>
-    </h2>
-    <div class="flex items-center gap-1">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-2">
+    <a
+      href="/"
+      aria-label="Homepage"
+      class="flex items-center text-zinc-800 no-underline dark:text-zinc-200"
+    >
+      <Logo size="small" showText={false} />
+    </a>
+    <div class="hidden items-center gap-1 lg:flex">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
     </div>
-    <ThemeToggle />
+    <div class="flex items-center gap-2">
+      <ThemeToggle />
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        class="relative cursor-pointer rounded-lg p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 lg:hidden dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-100"
+      >
+        <svg
+          id="menu-icon-open"
+          class="size-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+        <svg
+          id="menu-icon-close"
+          class="hidden size-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"></path>
+        </svg>
+        <span
+          class="absolute top-1/2 left-1/2 size-[max(100%,3rem)] -translate-1/2 pointer-fine:hidden"
+          aria-hidden="true"></span>
+      </button>
+    </div>
   </nav>
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-zinc-950/5 lg:hidden dark:border-white/10"
+  >
+    <div class="mx-auto max-w-5xl space-y-1 px-4 py-3">
+      {
+        navLinks.map(link => {
+          const isActive = link.href === pathname || link.href === currentPath;
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "block rounded-lg px-3 py-2 text-base font-medium",
+                isActive
+                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-700/50 dark:text-zinc-100"
+                  : "text-zinc-700 hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-zinc-800",
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
 </header>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById("mobile-menu-btn");
+    var menu = document.getElementById("mobile-menu");
+    var iconOpen = document.getElementById("menu-icon-open");
+    var iconClose = document.getElementById("menu-icon-close");
+
+    if (btn && menu && iconOpen && iconClose) {
+      btn.addEventListener("click", function () {
+        var isOpen = !menu.classList.contains("hidden");
+        menu.classList.toggle("hidden");
+        iconOpen.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+        btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+      });
+    }
+
+    document.addEventListener("astro:after-swap", function () {
+      if (menu) menu.classList.add("hidden");
+      if (iconOpen) iconOpen.classList.remove("hidden");
+      if (iconClose) iconClose.classList.add("hidden");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
+  })();
+</script>

@@ -37,7 +37,7 @@ const {
   </head>
 
   <body
-    class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100"
+    class="relative isolate flex min-h-dvh flex-col bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100"
   >
     <HeroBackground />
     <Header />
@@ -76,14 +76,14 @@ const {
                 src={heroImage}
                 alt={`Hero image for ${title}`}
                 loading="eager"
-                class="w-full rounded-2xl shadow-lg"
+                class="w-full rounded-2xl shadow-lg dark:shadow-none"
               />
             </div>
           )
         }
-        <div class="prose prose-lg prose-indigo dark:prose-invert max-w-none">
+        <div class="prose max-w-none">
           <div
-            class="mb-8 border-b border-zinc-200 pb-8 text-center dark:border-zinc-700"
+            class="mb-8 border-b border-zinc-950/10 pb-8 text-center dark:border-white/10"
           >
             <div class="mb-2 text-zinc-500 dark:text-zinc-400">
               <FormattedDate date={pubDate} />

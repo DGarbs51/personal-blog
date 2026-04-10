@@ -29,7 +29,7 @@ const { page } = Astro.props;
     />
   </head>
   <body
-    class="relative flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
+    class="relative isolate flex min-h-dvh flex-col bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100"
   >
     <HeroBackground />
     <Header />
@@ -37,7 +37,7 @@ const { page } = Astro.props;
       class="relative z-10 mx-auto max-w-7xl grow px-4 py-12 sm:px-6 lg:px-8"
     >
       <h1
-        class="font-heading mb-8 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white"
+        class="font-display mb-8 text-4xl font-semibold tracking-tight text-balance text-zinc-900 dark:text-white"
       >
         Blog Posts
       </h1>
@@ -49,7 +49,7 @@ const { page } = Astro.props;
             <article>
               <a
                 href={`/blog/${post.id}/`}
-                class="group shadow-card hover:shadow-card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 dark:border-zinc-800 dark:bg-zinc-900"
+                class="group shadow-card hover:shadow-card-hover flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 dark:bg-zinc-900 dark:shadow-none dark:inset-ring dark:ring-white/10 dark:inset-ring-white/5"
               >
                 {post.data.heroImage && (
                   <Image
@@ -61,14 +61,14 @@ const { page } = Astro.props;
                   />
                 )}
                 <div class="flex grow flex-col bg-white p-5 dark:bg-zinc-900">
-                  <h2 class="font-heading group-hover:text-accent-600 dark:group-hover:text-accent-400 text-lg font-semibold text-zinc-900 transition-colors dark:text-white">
+                  <h2 class="font-display group-hover:text-accent-600 dark:group-hover:text-accent-400 text-lg font-semibold text-zinc-900 transition-colors dark:text-white">
                     {post.data.title}
                   </h2>
                   <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
                     <FormattedDate date={post.data.pubDate} />
                   </p>
                   {post.data.description && (
-                    <p class="mt-2 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    <p class="mt-2 line-clamp-2 text-sm text-pretty text-zinc-600 dark:text-zinc-400">
                       {post.data.description}
                     </p>
                   )}
@@ -88,12 +88,12 @@ const { page } = Astro.props;
             {page.url.prev ? (
               <a
                 href={page.url.prev}
-                class="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-950/10 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:ring-white/10 dark:hover:bg-zinc-800"
               >
                 &larr; Previous
               </a>
             ) : (
-              <span class="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:text-zinc-600">
+              <span class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 ring-1 ring-zinc-950/5 dark:text-zinc-600 dark:ring-white/5">
                 &larr; Previous
               </span>
             )}
@@ -105,12 +105,12 @@ const { page } = Astro.props;
             {page.url.next ? (
               <a
                 href={page.url.next}
-                class="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-950/10 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:ring-white/10 dark:hover:bg-zinc-800"
               >
                 Next &rarr;
               </a>
             ) : (
-              <span class="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:text-zinc-600">
+              <span class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 ring-1 ring-zinc-950/5 dark:text-zinc-600 dark:ring-white/5">
                 Next &rarr;
               </span>
             )}
