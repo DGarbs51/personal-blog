@@ -6,7 +6,7 @@ Welcome to my personal blog! This is where I share my thoughts, experiences, and
 
 - **[Astro](https://astro.build/)** - The web framework for content-driven websites
 - **[MDX](https://mdxjs.com/)** - Markdown with JSX support
-- **[Cloudflare Pages](https://pages.cloudflare.com/)** - Hosting and deployment
+- **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** - Hosting and deployment
 
 ## 🌟 Features
 
@@ -33,35 +33,34 @@ You'll find articles about:
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
+- Node.js (v22.22 or higher)
+- [Bun](https://bun.sh/)
 
 ### Local Development
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run dev
+bun dev
 
 # Build for production
-npm run build
+bun run build
 
 # Preview production build
-npm run preview
+bun run preview
 ```
 
 ### Deployment
 
-This blog is deployed to Cloudflare Pages. To deploy:
+This blog is deployed to Cloudflare Workers as static assets. Workers Builds deploys automatically on every push to `main`. It runs `bun run build`, then `bunx wrangler deploy`. Pushes to other branches run `bunx wrangler preview`, which creates a Preview with its own URL for that branch.
+
+To check the deploy config locally without deploying:
 
 ```bash
-# Deploy to production
-npm run deploy
-
-# Deploy preview
-npm run deploy:preview
+bun run build
+bunx wrangler deploy --dry-run
 ```
 
 ## 📁 Project Structure
@@ -74,8 +73,8 @@ npm run deploy:preview
 │   ├── layouts/     # Page layouts
 │   ├── pages/       # Routes and pages
 │   └── styles/      # Global styles
-├── astro.config.js # Astro configuration
-└── wrangler.toml    # Cloudflare deployment config
+├── astro.config.js  # Astro configuration
+└── wrangler.jsonc   # Cloudflare deployment config
 ```
 
 ## 🤝 Connect With Me

@@ -36,64 +36,52 @@ const {
     />
   </head>
 
-  <body
-    class="relative isolate flex min-h-dvh flex-col bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100"
-  >
+  <body class="relative isolate flex min-h-dvh flex-col bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100">
     <HeroBackground />
     <Header />
-    <main
-      class="relative z-10 mx-auto max-w-4xl grow px-4 py-8 sm:px-6 lg:px-8"
-    >
-      {
-        showBackLink && (
-          <a
-            href="/blog"
-            class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+    <main class="relative z-10 mx-auto max-w-4xl grow px-4 py-8 sm:px-6 lg:px-8">
+      {showBackLink && (
+        <a
+          href="/blog"
+          class="mb-6 inline-flex items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="size-4"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="size-4"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Back to Blog Posts
-          </a>
-        )
-      }
+            <path
+              fill-rule="evenodd"
+              d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Back to Blog Posts
+        </a>
+      )}
       <article>
-        {
-          heroImage && (
-            <div class="mb-8">
-              <Image
-                width={1020}
-                height={510}
-                src={heroImage}
-                alt={`Hero image for ${title}`}
-                loading="eager"
-                class="w-full rounded-2xl shadow-lg dark:shadow-none"
-              />
-            </div>
-          )
-        }
+        {heroImage && (
+          <div class="mb-8">
+            <Image
+              width={1020}
+              height={510}
+              src={heroImage}
+              alt={`Hero image for ${title}`}
+              loading="eager"
+              class="w-full rounded-2xl shadow-lg dark:shadow-none"
+            />
+          </div>
+        )}
         <div class="prose max-w-none">
-          <div
-            class="mb-8 border-b border-zinc-950/10 pb-8 text-center dark:border-white/10"
-          >
+          <div class="mb-8 border-b border-zinc-950/10 pb-8 text-center dark:border-white/10">
             <div class="mb-2 text-zinc-500 dark:text-zinc-400">
               <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="italic">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
+              {updatedDate && (
+                <div class="italic">
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )}
             </div>
             <h1 class="mb-0">{title}</h1>
           </div>

@@ -1,9 +1,11 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "dgarbs51-personal-blog",
-  "compatibility_date": "2026-03-15",
+  "compatibility_date": "2026-10-19",
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",
   },
+  // Settings for Worker Previews (`wrangler preview`). Empty because the site has no bindings.
+  "previews": {},
 }

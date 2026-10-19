@@ -8,6 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://dgarbs51.com",
   output: "static",
+  // Astro 7 defaults to "jsx", which drops spaces between inline elements.
+  compressHTML: true,
   integrations: [mdx(), sitemap()],
   image: {
     service: {

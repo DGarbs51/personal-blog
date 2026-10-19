@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.11",
-    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/mdx": "^8.1.0",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^6.4.8",
-    "sharp": "^0.34.5",
+    "astro": "^7.4.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   },
@@ -26,8 +26,8 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.13.0",
     "prettier": "^3.9.10",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.4",
+    "prettier-plugin-astro": "^1.1.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "wrangler": "^4.151.2"
   }
 }
