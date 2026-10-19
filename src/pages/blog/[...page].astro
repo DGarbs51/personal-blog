@@ -22,101 +22,91 @@ const { page } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead
-      title={page.currentPage === 1
-        ? "Blog | DGarbs51"
-        : `Blog — Page ${page.currentPage} | DGarbs51`}
+      title={
+        page.currentPage === 1
+          ? "Blog | DGarbs51"
+          : `Blog — Page ${page.currentPage} | DGarbs51`
+      }
       description="Articles about development, leadership, Laravel, and lessons learned building software."
     />
   </head>
-  <body
-    class="relative isolate flex min-h-dvh flex-col bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100"
-  >
+  <body class="relative isolate flex min-h-dvh flex-col bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100">
     <HeroBackground />
     <Header />
-    <main
-      class="relative z-10 mx-auto max-w-7xl grow px-4 py-12 sm:px-6 lg:px-8"
-    >
-      <h1
-        class="font-display mb-8 text-4xl font-semibold tracking-tight text-balance text-zinc-900 dark:text-white"
-      >
+    <main class="relative z-10 mx-auto max-w-7xl grow px-4 py-12 sm:px-6 lg:px-8">
+      <h1 class="font-display mb-8 text-4xl font-semibold tracking-tight text-balance text-zinc-900 dark:text-white">
         Blog Posts
       </h1>
-      <div
-        class="grid auto-rows-[1fr] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {
-          page.data.map(post => (
-            <article>
-              <a
-                href={`/blog/${post.id}/`}
-                class="group shadow-card hover:shadow-card-hover flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 dark:bg-zinc-900 dark:shadow-none dark:inset-ring dark:ring-white/10 dark:inset-ring-white/5"
-              >
-                {post.data.heroImage && (
-                  <Image
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt={`Hero image for ${post.data.title}`}
-                    class="h-48 w-full object-cover"
-                  />
-                )}
-                <div class="flex grow flex-col bg-white p-5 dark:bg-zinc-900">
-                  <h2 class="font-display group-hover:text-accent-600 dark:group-hover:text-accent-400 text-lg font-semibold text-zinc-900 transition-colors dark:text-white">
-                    {post.data.title}
-                  </h2>
-                  <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                    <FormattedDate date={post.data.pubDate} />
+      <div class="grid auto-rows-[1fr] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {page.data.map(post => (
+          <article>
+            <a
+              href={`/blog/${post.id}/`}
+              class="group shadow-card hover:shadow-card-hover flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 dark:bg-zinc-900 dark:shadow-none dark:inset-ring dark:ring-white/10 dark:inset-ring-white/5"
+            >
+              {post.data.heroImage && (
+                <Image
+                  width={720}
+                  height={360}
+                  src={post.data.heroImage}
+                  alt={`Hero image for ${post.data.title}`}
+                  class="h-48 w-full object-cover"
+                />
+              )}
+              <div class="flex grow flex-col bg-white p-5 dark:bg-zinc-900">
+                <h2 class="font-display group-hover:text-accent-600 dark:group-hover:text-accent-400 text-lg font-semibold text-zinc-900 transition-colors dark:text-white">
+                  {post.data.title}
+                </h2>
+                <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+                {post.data.description && (
+                  <p class="mt-2 line-clamp-2 text-sm text-pretty text-zinc-600 dark:text-zinc-400">
+                    {post.data.description}
                   </p>
-                  {post.data.description && (
-                    <p class="mt-2 line-clamp-2 text-sm text-pretty text-zinc-600 dark:text-zinc-400">
-                      {post.data.description}
-                    </p>
-                  )}
-                </div>
-              </a>
-            </article>
-          ))
-        }
+                )}
+              </div>
+            </a>
+          </article>
+        ))}
       </div>
 
-      {
-        page.lastPage > 1 && (
-          <nav
-            class="mt-10 flex items-center justify-center gap-4"
-            aria-label="Blog pagination"
-          >
-            {page.url.prev ? (
-              <a
-                href={page.url.prev}
-                class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-950/10 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:ring-white/10 dark:hover:bg-zinc-800"
-              >
-                &larr; Previous
-              </a>
-            ) : (
-              <span class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 ring-1 ring-zinc-950/5 dark:text-zinc-600 dark:ring-white/5">
-                &larr; Previous
-              </span>
-            )}
-
-            <span class="text-sm text-zinc-500 dark:text-zinc-400">
-              Page {page.currentPage} of {page.lastPage}
+      {page.lastPage > 1 && (
+        <nav
+          class="mt-10 flex items-center justify-center gap-4"
+          aria-label="Blog pagination"
+        >
+          {page.url.prev ? (
+            <a
+              href={page.url.prev}
+              class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-950/10 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:ring-white/10 dark:hover:bg-zinc-800"
+            >
+              &larr; Previous
+            </a>
+          ) : (
+            <span class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 ring-1 ring-zinc-950/5 dark:text-zinc-600 dark:ring-white/5">
+              &larr; Previous
             </span>
+          )}
 
-            {page.url.next ? (
-              <a
-                href={page.url.next}
-                class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-950/10 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:ring-white/10 dark:hover:bg-zinc-800"
-              >
-                Next &rarr;
-              </a>
-            ) : (
-              <span class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 ring-1 ring-zinc-950/5 dark:text-zinc-600 dark:ring-white/5">
-                Next &rarr;
-              </span>
-            )}
-          </nav>
-        )
-      }
+          <span class="text-sm text-zinc-500 dark:text-zinc-400">
+            Page {page.currentPage} of {page.lastPage}
+          </span>
+
+          {page.url.next ? (
+            <a
+              href={page.url.next}
+              class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-950/10 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:ring-white/10 dark:hover:bg-zinc-800"
+            >
+              Next &rarr;
+            </a>
+          ) : (
+            <span class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 ring-1 ring-zinc-950/5 dark:text-zinc-600 dark:ring-white/5">
+              Next &rarr;
+            </span>
+          )}
+        </nav>
+      )}
     </main>
     <Footer />
   </body>

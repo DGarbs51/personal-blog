@@ -14,9 +14,7 @@ const navLinks = [
 ];
 ---
 
-<header
-  class="sticky top-0 z-50 bg-white shadow-xs dark:border-b dark:border-white/10 dark:bg-zinc-800 dark:shadow-none"
->
+<header class="sticky top-0 z-50 bg-white shadow-xs dark:border-b dark:border-white/10 dark:bg-zinc-800 dark:shadow-none">
   <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-2">
     <a
       href="/"
@@ -51,7 +49,8 @@ const navLinks = [
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          ></path>
         </svg>
         <svg
           id="menu-icon-close"
@@ -65,11 +64,13 @@ const navLinks = [
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M6 18 18 6M6 6l12 12"></path>
+            d="M6 18 18 6M6 6l12 12"
+          ></path>
         </svg>
         <span
           class="absolute top-1/2 left-1/2 size-[max(100%,3rem)] -translate-1/2 pointer-fine:hidden"
-          aria-hidden="true"></span>
+          aria-hidden="true"
+        ></span>
       </button>
     </div>
   </nav>
@@ -78,24 +79,22 @@ const navLinks = [
     class="hidden border-t border-zinc-950/5 lg:hidden dark:border-white/10"
   >
     <div class="mx-auto max-w-5xl space-y-1 px-4 py-3">
-      {
-        navLinks.map(link => {
-          const isActive = link.href === pathname || link.href === currentPath;
-          return (
-            <a
-              href={link.href}
-              class:list={[
-                "block rounded-lg px-3 py-2 text-base font-medium",
-                isActive
-                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-700/50 dark:text-zinc-100"
-                  : "text-zinc-700 hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-zinc-800",
-              ]}
-            >
-              {link.label}
-            </a>
-          );
-        })
-      }
+      {navLinks.map(link => {
+        const isActive = link.href === pathname || link.href === currentPath;
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "block rounded-lg px-3 py-2 text-base font-medium",
+              isActive
+                ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-700/50 dark:text-zinc-100"
+                : "text-zinc-700 hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-zinc-800",
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
     </div>
   </div>
 </header>
