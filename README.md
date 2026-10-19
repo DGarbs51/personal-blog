@@ -54,7 +54,7 @@ bun run preview
 
 ### Deployment
 
-This blog is deployed to Cloudflare Workers as static assets. Workers Builds deploys automatically on every push to `main`. It runs `bun run build`, then `bunx wrangler deploy`. Pushes to other branches run `bunx wrangler preview`, which creates a Preview with its own URL for that branch.
+This blog is deployed to Cloudflare Workers as static assets. Workers Builds deploys automatically on every push to `main`. It runs `bun run build`, then `bunx wrangler deploy`. Pushes to other branches do not build. The site serves only on `dgarbs51.com`, and `www.dgarbs51.com` redirects to it.
 
 To check the deploy config locally without deploying:
 

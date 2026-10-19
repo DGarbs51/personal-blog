@@ -16,7 +16,7 @@ This site deploys as an assets-only Worker through Workers Builds. It is not a C
 2. Workers Builds runs the build command (`bun run build`), which writes the static site to `./dist`.
 3. Workers Builds runs the deploy command (`bunx wrangler deploy`), which uploads `./dist` as static assets.
 
-Pushes to other branches run the Preview command (`bunx wrangler preview`) instead. It creates or updates a Worker Preview for that branch, with a stable URL that updates on every push. It does not touch production.
+The build trigger runs on `main` only. Pushes to other branches do not build, and the site has no Previews.
 
 Validate config changes locally before you push:
 
@@ -32,20 +32,26 @@ bunx wrangler deploy --dry-run
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "dgarbs51-personal-blog",
   "compatibility_date": "2026-10-19",
+  "routes": [
+    { "pattern": "dgarbs51.com", "custom_domain": true },
+    { "pattern": "www.dgarbs51.com", "custom_domain": true },
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",
   },
-  "previews": {},
 }
 ```
 
 - `wrangler.jsonc` is the source of truth. Do not use Pages keys such as `pages_build_output_dir`.
+- `routes` attaches `dgarbs51.com` and `www.dgarbs51.com` as Custom Domains. A zone Redirect Rule sends `www` to the apex with a `301`, so the Worker only answers on the apex. Remove the routes before you point DNS at another host.
+- `workers_dev: false` and `preview_urls: false` turn off every `*.workers.dev` URL, so the site is only reachable on its own domain.
 - `assets.directory` must match the Astro output directory (`./dist`).
 - `not_found_handling: "404-page"` serves the nearest `404.html` with a `404` status.
 - `html_handling` defaults to `auto-trailing-slash`. Keep the default unless the Astro `trailingSlash` setting changes.
 - Set `compatibility_date` to the current date when you upgrade wrangler.
-- `previews` holds the settings for `wrangler preview`. It is empty because the site has no bindings, vars, or secrets. If you add any, define the Preview values in `previews` too, because Previews do not use production settings.
 - Only add `main`, `assets.binding`, or `compatibility_flags` if the site gets server-side code. An `assets.binding` without `main` is invalid.
 
 ## Headers and Redirects

@@ -2,10 +2,15 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "dgarbs51-personal-blog",
   "compatibility_date": "2026-10-19",
+  // Serve only on the real domain. No workers.dev or Preview URLs.
+  "routes": [
+    { "pattern": "dgarbs51.com", "custom_domain": true },
+    { "pattern": "www.dgarbs51.com", "custom_domain": true },
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",
   },
-  // Settings for Worker Previews (`wrangler preview`). Empty because the site has no bindings.
-  "previews": {},
 }
